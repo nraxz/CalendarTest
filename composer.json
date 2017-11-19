@@ -1,0 +1,25 @@
+{
+    "name": "vegvari/calendartest",
+    "description": "Calendar Test",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Romeo Vegvari",
+            "email": "romeo@vegvari.hu"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Calendar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Calendar\\": "test/"
+        }
+    }
+}
