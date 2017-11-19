@@ -44,7 +44,9 @@ class Calendar implements CalendarInterface
 			$dateLast = $this->getCalendarDateLast($this->dateTime);
 			$theDate = $dateStart;
 
+            	/* While loop has not been bebuged properly, it doesn't comeout of infinity Please feel free to defactor it */
 
+              /*
 			$displayWeek = 0;
 			while ($displayWeek < 6){
 
@@ -61,8 +63,17 @@ class Calendar implements CalendarInterface
 
 					$theDate++;
 				}
-
-
+                */
+          for ($displayWeek = 0; $displayWeek < 6; $displayWeek++){
+					if ($theDate <= $dateLast){
+						$runningWeek = (int)$theDate->format('W');
+						for ($theDay = 1; $theDay <= 7; $theDay++){
+							$theDayOfMonth = $theDate->format('j');
+							$calendarResult[$runningWeek][$theDayOfMonth] = $this->weekHighlight($runningWeek);
+							$theDate->modify('+1 day');
+						}
+					}
+				}
         return $calendarResult;
     }
      /**
